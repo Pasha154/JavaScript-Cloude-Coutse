@@ -1,17 +1,40 @@
-let name = prompt("Как вас зовут?");
+const answer = prompt("Как вас зовут?");
+let userName =
+  answer === null || answer.trim() === "" ? "Гость" : answer.trim();
+alert(`Привет, ${userName}!`);
 
-if(name === null || name.trim() === ''){
-	alert("Привет, Гость!");
-}else{
-	alert(`Привет, ${name}!`);
-}
+let choice;
+do {
+  choice = prompt(`Мини-помощник
+1 — Калькулятор возраста
+2 — Конвертер валют
+3 — Таблица умножения
+4 — Проверка простого числа
+0 — Выход`);
 
-console.log(typeof(name));
+  switch (choice) {
+    case "1":
+      alert("Калькулятор возраста");
+      break;
 
-//'' дало мне string поскольку по сути '' это строка. null дало object, это давняя ошибка в js, как т должно быть.
+    case "2":
+      alert("Конвертер валют");
+      break;
 
-//null.trim() выдало ошибку, поскольку у null такого метода нет. Следовательно нам нужно сначало прверить, не равнеться ли значение null, а потои уже писать методы.
+    case "3":
+      alert("Таблица умножения");
+      break;
 
-//string underfined null symbol number bigint boolean
+    case "4":
+      alert("Проверка простого числа");
+      break;
 
-//null возвращает браузер, так как это предусмотренное значения prompt. Тоесть если я нажимаю отмена, браузер вернет null, а ОК с пустыи полем, аозаращает строку. 
+    case "0": //выход, ничего не показываем
+    case null:
+      break;
+
+    default:
+      alert("Выбран неверный пункт");
+  }
+} while (choice !== "0" && choice !== null);
+alert(`Пока, ${userName}!`);
